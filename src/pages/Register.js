@@ -7,8 +7,8 @@ const Register = () => {
     const onSubmit = data => console.log(data);
     return (
         <>
-            <div className=' py-5'>
-                <div style={{ maxWidth: "750px" }} className='bg-light p-5 mx-auto'>
+            <div className='bg-info bg-opacity-10 py-5'>
+                <div style={{ maxWidth: "750px" }} className='bg-light p-5 mx-auto rounded'>
                     <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
                         <h2 className='fs-3 text-center fw-bold py-2 my-3'>Please Register</h2>
 
