@@ -5,6 +5,10 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.paragraph-text {
+  max-width: 750px;
+}
+
 /* 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

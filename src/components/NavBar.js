@@ -3,6 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import ModalBox from './ModalBox';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 function NavBar() {
     const [crypto, setCrypto] = useState();
@@ -16,7 +18,7 @@ function NavBar() {
                 <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
                     <Nav>
                         <select
-                            className='px-5 py-1 ms-2'
+                            className='px-5 py-1 ms-md-2'
                             onChange={(e) => setCrypto(e.target.value)}
                             id="select-crypto">
                             <option value="option1">Option1</option>
@@ -26,10 +28,11 @@ function NavBar() {
                             <option value="option5">Option5</option>
                             <option value="option6">Option6</option>
                         </select>
-                        <button className='ms-2 px-5 py-1 bg-transparent border border-success text-success' onClick={() => setModalShow(true)}>
+                        <button className='ms-md-2 px-5 py-1 bg-transparent border border-success text-success' onClick={() => setModalShow(true)}>
                             Connect Wallet
                         </button>
                         <ModalBox show={modalShow} onHide={() => setModalShow(false)} />
+                        <FontAwesomeIcon className='ms-md-2' icon={faUserCircle} size="2x" />
                     </Nav>
                 </Navbar.Collapse>
             </Container>
