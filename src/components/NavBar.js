@@ -5,15 +5,20 @@ import Navbar from 'react-bootstrap/Navbar';
 import ModalBox from './ModalBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 function NavBar() {
     const [crypto, setCrypto] = useState();
     const [modalShow, setModalShow] = useState(false)
+    // }
     console.log(crypto);
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container className='d-flex justify-content-between'>
-                <Navbar.Brand className='text-success fw-bolder fs-2' href="#home">Faucets</Navbar.Brand>
+                <Navbar.Brand className='text-success fw-bolder fs-2 '>
+                    <Link className='text-decoration-none' to='/'>Faucets</Link>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
                     <Nav>
@@ -21,22 +26,39 @@ function NavBar() {
                             className='px-5 py-1 ms-md-2'
                             onChange={(e) => setCrypto(e.target.value)}
                             id="select-crypto">
-                            <option value="option1">Option1</option>
-                            <option value="option2">Option2</option>
-                            <option value="option3">Option3</option>
-                            <option value="option4">Option4</option>
-                            <option value="option5">Option5</option>
-                            <option value="option6">Option6</option>
+                            <option value="ar-ri">Arbitrum Rinkeby</option>
+                            <option value="av-fu">Avalanche Fuji</option>
+                            <option value="bnb">BNB Chain Testnet</option>
+                            <option value="eth-rin">Ethirium Rinkeby</option>
+                            <option value="fan-test">Fantom TestNet</option>
+                            <option value="ha-test">Harmony Testnet</option>
                         </select>
                         <button className='ms-md-2 px-5 py-1 bg-transparent border border-success text-success' onClick={() => setModalShow(true)}>
                             Connect Wallet
                         </button>
                         <ModalBox show={modalShow} onHide={() => setModalShow(false)} />
-                        <FontAwesomeIcon className='ms-md-2' icon={faUserCircle} size="2x" />
+
+                        <Dropdown className='ms-md-2 rounded-circle'>
+                            <Dropdown.Toggle id="dropdown-button-dark-example1" variant="light">
+                                <FontAwesomeIcon icon={faUserCircle} size="2x" />
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu variant="light">
+                                <Dropdown.Item>
+                                    <Link className='text-decoration-none text-secondary' to='/log-in'>Log In </Link>
+                                </Dropdown.Item>
+                                <Dropdown.Item >
+                                    <Link className='text-decoration-none text-secondary' to='/register'>Register</Link>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <Link className='text-decoration-none text-secondary' to='/faq'>FAQ</Link>
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+                </Navbar.Collapse >
+            </Container >
+        </Navbar >
     );
 }
 
