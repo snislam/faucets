@@ -1,11 +1,14 @@
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useContext } from 'react';
 import { useState } from 'react';
 import Alert from "react-bootstrap/Alert"
 import ReCAPTCHA from 'react-google-recaptcha';
+import { CryptoContext } from './NavBar';
 
 const FormSection = () => {
+    const crypto = useContext(CryptoContext)
     const [verified, setVerified] = useState(false)
     const onChange = (value) => {
         setVerified(true)
@@ -14,7 +17,7 @@ const FormSection = () => {
         <div>
             <Alert variant='info'>
                 <FontAwesomeIcon icon={faTriangleExclamation} size='md' className='me-2 text-success' />
-                Your wallet is connected to Ethereum Kovan, so you are requesting Ethereum Kovan Link/ETH.
+                Your wallet is connected to <span className='fw-bold text-danger'>{crypto}</span> , so you are requesting <span className='fw-bold text-danger'>{crypto}</span> Link/ETH.
             </Alert>
             <form style={{ maxWidth: "750px" }} >
                 <label className='text-success fw-bold' htmlFor="wallet-address">Wallet Address</label> <br />

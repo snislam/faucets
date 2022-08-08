@@ -14,7 +14,7 @@ const TableTemplate = ({ data }) => {
             </thead>
             <tbody>
                 {
-                    data?.map((d, i) => <TableRow data={d} index={i} />)
+                    data?.map((d, i) => <TableRow key={i} data={d} index={i} />)
                 }
             </tbody>
         </Table>

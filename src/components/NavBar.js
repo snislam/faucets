@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,11 +8,11 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-function NavBar() {
-    const [crypto, setCrypto] = useState();
+// create context
+export const CryptoContext = createContext('Arbitrum Rinkeby')
+
+function NavBar({ setCrypto }) {
     const [modalShow, setModalShow] = useState(false)
-    // }
-    console.log(crypto);
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container className='d-flex justify-content-between'>
@@ -24,7 +24,7 @@ function NavBar() {
                     <Nav>
                         <select
                             className='px-5 py-1 ms-md-2'
-                            onChange={(e) => setCrypto(e.target.value)}
+                            onChange={(e) => setCrypto(e.target.options[e.target.selectedIndex].text)}
                             id="select-crypto">
                             <option value="ar-ri">Arbitrum Rinkeby</option>
                             <option value="av-fu">Avalanche Fuji</option>
