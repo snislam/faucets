@@ -26,10 +26,10 @@ const FormSection = () => {
                 <label className='text-success fw-bold pt-3' htmlFor="request-type">Request Type</label> <br />
                 <div className="row mb-3">
                     <div className="col-md">
-                        <input className='form-control' type="text" id='request-type' placeholder='20 Test Link' />
+                        <input className='form-control' type="text" id='request-type' defaultValue='20 Test Link' />
                     </div>
                     <div className="col-md">
-                        <input className='form-control' type="text" id='amount' placeholder='0.5 ETH' />
+                        <input className='form-control' type="text" id='amount' defaultValue='0.5 ETH' />
                     </div>
                 </div>
                 <ReCAPTCHA

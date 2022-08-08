@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import ModalBox from './ModalBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faWallet } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -34,6 +34,7 @@ function NavBar({ setCrypto }) {
                             <option value="ha-test">Harmony Testnet</option>
                         </select>
                         <button className='ms-md-2 px-5 py-1 bg-transparent border border-success text-success' onClick={() => setModalShow(true)}>
+                            <FontAwesomeIcon icon={faWallet} className='me-2' />
                             Connect Wallet
                         </button>
                         <ModalBox show={modalShow} onHide={() => setModalShow(false)} />
@@ -45,13 +46,13 @@ function NavBar({ setCrypto }) {
 
                             <Dropdown.Menu variant="light">
                                 <Dropdown.Item>
-                                    <Link className='text-decoration-none text-secondary' to='/log-in'>Log In </Link>
+                                    <Link className='text-decoration-none text-secondary d-block w-100' to='/log-in'>Log In </Link>
                                 </Dropdown.Item>
                                 <Dropdown.Item >
-                                    <Link className='text-decoration-none text-secondary' to='/register'>Register</Link>
+                                    <Link className='text-decoration-none text-secondary d-block w-100' to='/register'>Register</Link>
                                 </Dropdown.Item>
                                 <Dropdown.Item>
-                                    <Link className='text-decoration-none text-secondary' to='/faq'>FAQ</Link>
+                                    <Link className='text-decoration-none text-secondary d-block w-100' to='/faq'>FAQ</Link>
                                 </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
